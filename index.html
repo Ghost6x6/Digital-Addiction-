@@ -14,7 +14,7 @@
       color: #eee;
       line-height: 1.8;
       text-align: center;
-      font-size: 1.2rem; /* Increased base font size */
+      font-size: 1.2rem;
     }
 
     h1, h2, h3 {
@@ -24,15 +24,15 @@
     }
 
     h1 {
-      font-size: 4rem; /* Larger header text */
+      font-size: 4rem;
     }
 
     h2 {
-      font-size: 2.8rem; /* Larger section titles */
+      font-size: 2.8rem;
     }
 
     p, li {
-      font-size: 1.3rem; /* Larger paragraph and list text */
+      font-size: 1.3rem;
     }
 
     a {
@@ -74,7 +74,7 @@
     }
 
     nav a {
-      font-size: 1.5rem; /* Slightly larger navigation links */
+      font-size: 1.5rem;
       font-weight: bold;
       color: #fff;
       transition: all 0.3s ease;
@@ -98,8 +98,8 @@
     }
 
     .section img {
-      width: 80%; /* Adjusted image size */
-      max-width: 600px; /* Smaller max-width for images */
+      width: 80%;
+      max-width: 600px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 195, 255, 0.5);
       transition: transform 0.4s ease;
@@ -113,7 +113,7 @@
     .btn {
       display: inline-block;
       padding: 12px 24px;
-      font-size: 1.3rem; /* Larger button text */
+      font-size: 1.3rem;
       font-weight: bold;
       color: #fff;
       background: linear-gradient(45deg, #ff007f, #ff4da6);
@@ -140,20 +140,41 @@
       box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    /* Source Section */
-    .source {
-      margin-top: 40px;
-      font-size: 1.1rem;
-      color: #aaa;
+    /* Video Container */
+    .video-container {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 195, 255, 0.5);
     }
 
-    .source a {
-      color: #00eaff;
-      text-decoration: underline;
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
     }
 
-    .source a:hover {
-      color: #ff4da6;
+    /* Play Button */
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 10px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .play-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
@@ -202,7 +223,7 @@
         <li><strong>الاعتماد العاطفي:</strong> استخدام الأجهزة كوسيلة للهروب من المشاكل أو الضغوط النفسية.</li>
         <li><strong>تأثيرات على الأطفال والمراهقين:</strong> انخفاض الأداء الدراسي، صعوبة في تكوين العلاقات، وزيادة العدوانية أو الانعزال.</li>
       </ul>
-      <a href="#treatment" class="btn btn-secondary" id="symptoms-button">اكتشف العلاج</a>
+      <a href="#treatment" class="btn" id="symptoms-button">اكتشف العلاج</a>
       <img src="image1.JPG" alt="مظاهر الإدمان الرقمي">
     </section>
 
@@ -218,11 +239,16 @@
         <li><strong>تعزيز العلاقات الاجتماعية</strong></li>
       </ul>
       <p id="treatment-text">هناك العديد من الكتب التي تتناول موضوع الإدمان الرقمي، وتستعرض تأثير استخدام التكنولوجيا ووسائل التواصل الاجتماعي على الأفراد والمجتمع. من أبرز هذه الكتب كتاب <strong>"Digital Minimalism"</strong> (التقليل الرقمي) للكاتب <strong>Cal Newport</strong>، الذي يناقش كيفية تقليل تأثير التكنولوجيا الرقمية على حياتنا، ويقدم نصائح حول كيفية إدارة الوقت والموارد بشكل أكثر فاعلية.</p>
-      <a href="https://youtu.be/llrLawTDN38?si=tKAZBoUyCO2u_jIE" target="_blank" class="video-button">
-        <span id="video-button-text">شرح كتاب التقليل الرقمي | بوكافيين</span>
-      </a>
-      <video id="video" src="video1.mp4" poster="thumbnail.jpg" controls></video>
-      <button id="playButton" class="play-btn">▶</button>
+      
+      <!-- Video Section -->
+      <div class="video-container">
+        <video id="video" controls poster="thumbnail.jpg">
+          <source src="video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button id="playButton" class="play-btn">▶</button>
+      </div>
+
       <a href="#conclusion" class="btn" id="treatment-button">اقرا الخلاصة</a>
       <img src="image3.JPG" alt="علاج الإدمان الرقمي">
     </section>
@@ -230,52 +256,14 @@
     <section id="conclusion" class="section">
       <h2 id="conclusion-title">الخلاصة</h2>
       <p id="conclusion-text">الإدمان الرقمي هو حالة يتم فيها استخدام التكنولوجيا بشكل مفرط إلى درجة أنها تؤثر سلباً على حياة الشخص اليومية. يشمل هذا الإدمان استخدام الأجهزة الإلكترونية مثل الهواتف الذكية، الإنترنت، ألعاب الفيديو ووسائل التواصل الاجتماعي. يتسبب هذا الإدمان في عواقب صحية، نفسية، واجتماعية، حيث قد يعاني الشخص من مشاكل في التركيز، اضطرابات النوم، الاكتئاب، وتدهور العلاقات الاجتماعية. كما أن الشباب هم الأكثر تعرضًا لهذه الظاهرة بسبب استخدامهم المتزايد للأجهزة الإلكترونية....</p>
-      <a href="#definition" class="btn btn-secondary" id="conclusion-button">العودة إلى الأعلى</a>
+      <a href="#definition" class="btn" id="conclusion-button">العودة إلى الأعلى</a>
     </section>
-
-<section id="sources">
-    <h2>Sources & References</h2>
-    <ul class="source-list">
-        <li>
-            <a href="https://youtu.be/llrLawTDN38?si=tKAZBoUyCO2u_jIE" target="_blank">
-                <i class="fab fa-youtube"></i> Youtube: شرح كتاب التقليل الرقمي | بوكافيين
-            </a>
-        </li>
-        <li>
-            <a href="https://www.amazon.com/Digital-Minimalism-Choosing-Focused-Noisy/dp/0525536515" target="_blank">
-                <i class="fas fa-book"></i> Digital Minimalism – Cal Newport (Amazon)
-            </a>
-        </li>
-        <li>
-            <a href="https://www.penguinrandomhouse.com/books/575667/digital-minimalism-by-cal-newport/" target="_blank">
-                <i class="fas fa-globe"></i> Penguin Random House – Digital Minimalism
-            </a>
-        </li>
-        <li>
-            <a href="https://www.goodreads.com/book/show/40672036-digital-minimalism" target="_blank">
-                <i class="fas fa-star"></i> Digital Minimalism Reviews (Goodreads)
-            </a>
-        </li>
-        <li>
-            <a href="https://calnewport.com/on-digital-minimalism/" target="_blank">
-                <i class="fas fa-pen"></i> Cal Newport's Blog on Digital Minimalism
-            </a>
-        </li>
-        <li>
-            <a href="https://www.youtube.com/watch?v=sJdZ7kmA2QQ" target="_blank">
-                <i class="fab fa-youtube"></i> Digital Minimalism – YouTube Summary
-            </a>
-        </li>
-    </ul>
-</section>
-    </div>
   </div>
 
   <footer>
     <p> <a href="#" target="_blank">[Ahmed Farhat]</a></p>
   </footer>
 
- 
   <script>
     const translations = {
       ar: {
@@ -427,4 +415,28 @@
       document.getElementById("conclusion-text").textContent = translation.conclusionText;
       document.getElementById("conclusion-button").textContent = translation.conclusionButton;
     }
+
+    // Video Play Button
+    const video = document.getElementById("video");
+    const playButton = document.getElementById("playButton");
+
+    playButton.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playButton.style.display = "none"; // Hide the button when video is playing
+      } else {
+        video.pause();
+        playButton.style.display = "block"; // Show the button when video is paused
+      }
+    });
+
+    video.addEventListener("play", () => {
+      playButton.style.display = "none"; // Hide the button when video starts playing
+    });
+
+    video.addEventListener("pause", () => {
+      playButton.style.display = "block"; // Show the button when video is paused
+    });
   </script>
+</body>
+</html>
